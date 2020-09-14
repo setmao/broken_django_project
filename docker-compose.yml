@@ -15,7 +15,7 @@ services:
       container_name: orderly
       build: .
       restart: always
-      entrypoint: /entrypoint-dev.sh
+      entrypoint: /entrypoint.sh
       stdin_open: true
       tty: true
       volumes:
