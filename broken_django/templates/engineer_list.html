@@ -1,0 +1,8 @@
+<h1>Engineer</h1>
+<ul>
+{% for engineer in object_list %}
+    <li>{{ engineer.name }} - {{ engineer.nickname }}</li>
+{% empty %}
+    <li>No engineer yet.</li>
+{% endfor %}
+</ul>

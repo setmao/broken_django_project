@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+
+  postgres:
+    container_name: postgres
+    image: postgres:11-alpine
+    environment:
+      POSTGRES_USER: local
+      POSTGRES_PASSWORD: local
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  web:
+      container_name: orderly
+      build: .
+      restart: always
+      entrypoint: /entrypoint-dev.sh
+      stdin_open: true
+      tty: true
+      volumes:
+        - ./web:/home/web
+      links:
+        - postgres
+      depends_on:
+        - postgres
+
+volumes:
+  pg_data:
