@@ -19,7 +19,7 @@ services:
       stdin_open: true
       tty: true
       volumes:
-        - ./web:/home/web
+        - ./broken_django:/home/broken_django
       links:
         - postgres
       depends_on:
